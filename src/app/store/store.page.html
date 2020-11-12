@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <strong><span>Compra<img class="logo" src="../../assets/tag.svg" />Certa</span></strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>{{rota}} {{cidade}}</ion-label>
+      <ion-icon *ngIf="isOpen" (click)="open()" name="filter-outline"></ion-icon>
+      <ion-icon *ngIf="isClose" (click)="close()" name="close-outline"></ion-icon>
+    </ion-list-header>
+    <ion-item (click)="filterSelect($event)" *ngIf="filter" class="filter">
+      <ion-label>Filtrar por {{statusName}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="getStatus.check"></ion-checkbox>
+    </ion-item>
+    <div *ngFor="let skeleton of skeletons">
+      <ion-item *ngIf="!stores">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </div>
+
+  <div *ngFor="let store of stores">
+    <div *ngFor="let city of store.cidade">
+      <ion-item  *ngIf="stores && city.nome === cidade" (click)="goStore(store)"> 
+          <ion-avatar slot="start">
+            <img *ngIf="store.image" src="{{store.image}}">
+          </ion-avatar>
+          <ion-label *ngIf="store.nome">
+            <h3>{{store.nome}}</h3>
+            <h3>{{store.entrega}}</h3>
+            <p>{{city.nome}}</p>
+            <div class="status">
+              <p *ngIf="store.status === 'aberto'" [ngStyle]="{'color': 'rgb(24, 173, 0)'}">{{store.status}}</p>
+              <p *ngIf="store.status === 'fechado'" [ngStyle]="{'color': '#aa1f18'}">{{store.status}}</p> 
+            </div>     
+          </ion-label>
+      </ion-item>
+    </div>
+  </div>
+   
+  </ion-list>
+</ion-content>
+
+

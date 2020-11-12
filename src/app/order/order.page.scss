@@ -1,0 +1,96 @@
+
+ion-toolbar.footer {
+    position: fixed;
+    bottom: 0;
+    --background: #FFF;
+    color: #FFF;
+    border-top: 1px solid rgba(128, 98, 96, 0.16);
+}
+
+ion-button {
+    --background: linear-gradient(to right,#ff9259,#ff2426);
+    margin: 0 auto;
+    width: 20rem;
+    height: 2.5rem;
+}
+
+
+ion-icon {
+    font-size: 14px;
+    color: #ff9259;
+}
+
+.total ion-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+strong {
+    color: #000;
+    text-align: center;
+    width: 50px;
+}
+
+ion-card {
+    margin-bottom: 20%;
+}
+
+span {
+    font-size: 12px;
+}
+
+ion-row {
+    width: 100%;
+}
+
+a {
+    color: #FFF !important;
+    text-decoration: none !important;
+}
+
+.break {
+    color: transparent;
+    font-size: 0;
+}
+
+ion-buttons.btn-message {
+    width: 100%;
+}
+
+ion-buttons.btn-message ion-button {
+    --background: #FFF !important;
+    font-size: 10px;
+    border: 1px solid #ff9259;
+    border-radius: 4px;
+    color: #ff9259;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-message ion-button:hover {
+    --background: #ff9259 !important;
+    border: none;
+    color: #FFF;
+}
+
+.text-color {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    background: #717171;
+    padding: 5px;
+}
+
+.message-fechado {
+    margin: 0 auto;
+    font-weight: bold;
+    color: rgb(170, 31, 24);
+}
+
+ion-list-header {
+    --background: #f2f2f2;
+}

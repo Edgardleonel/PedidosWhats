@@ -1,0 +1,69 @@
+img#banner {
+    max-width: 120px;
+    border: 0;
+    padding: 10px;
+    float: right;
+}
+
+img.logo {
+    width: 25px;
+}
+
+.categoria {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+ion-avatar {
+    width: 100px;
+    height: 75px;
+    --border-radius: 0;
+}
+
+
+
+ion-toolbar.footer {
+    position: fixed;
+    bottom: 0;
+    --background: linear-gradient(to right,#ff9259,#ff2426);
+    color: #FFF;
+}
+
+ion-button {
+    --background: transparent !important;
+}
+
+ion-icon {
+    font-size: 28px;
+}
+
+ion-content {
+    --padding-bottom: 20%;
+}
+
+.categoria ion-chip {
+    border: 1px solid #8c8c8c;
+    color: #8c8c8c;
+}
+
+
+.active {
+    background-color: #8c8c8c !important;
+    color: #FFF !important;
+}
+
+
+.status p {
+    text-transform: capitalize;
+}
+
+
+ion-label {
+    white-space: normal !important;
+}
+
+ion-label p {
+    white-space: nowrap !important;
+}

@@ -1,0 +1,22 @@
+ion-icon {
+    color: #FFF;
+    font-size: 28px;
+}
+
+ion-button {
+    --background: linear-gradient(to right,#ff9259,#ff2426);
+    height: 40px;
+    width: 40px;
+}
+
+ion-item {
+    line-height: 2.5;
+}
+
+ion-label {
+    text-transform: capitalize;
+}
+
+ion-list {
+    padding: 0 !important;
+}

@@ -1,0 +1,20 @@
+
+<ion-content >
+  <div id="container">
+    <strong><span>Compra<img class="logo" src="../../assets/tag.svg" />Certa</span></strong>
+    <p>Todas as lojas da sua região, comprando rápido, fácil! Experimente..</p>
+
+      <ion-card>
+        <ion-item>
+          <ion-label position="floating">Escolha sua cidade</ion-label>
+          <ion-select #cidade="ngModel" name="cidade" okText="OK" (ionChange)="searchCity(selectCity)"  [(ngModel)]="selectCity" cancelText="Cancelar" required>
+          <div *ngFor="let cidade of cidades">
+            <ion-select-option value="{{cidade.cidade}}">{{cidade.cidade}}</ion-select-option>
+          </div>
+          </ion-select>
+        </ion-item>
+      </ion-card>
+      <ion-button  class="button" [disabled]="!isSubmit"  routerLink="/tabs/departamentos">Inicie suas Compras</ion-button>
+
+  </div>
+</ion-content>

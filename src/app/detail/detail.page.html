@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <img src="{{product.image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>{{product.categoria}}</ion-card-subtitle>
+      <ion-card-title>{{product.nome}}</ion-card-title>
+      <h6>{{product.descricao}}</h6>
+      <h6 *ngIf="activeEstoque === true">Estoque disponível {{product.estoque}} itens</h6>
+    </ion-card-header>
+    <ion-card-content *ngIf="!product.precoCombo">
+      {{format(product.preco)}}
+    </ion-card-content>
+    <ion-card-content *ngIf="product.precoCombo">
+      {{format(product.precoCombo)}}
+    </ion-card-content>
+    <ion-list *ngIf="opcoes[0].descricao !== 'sem opcoes'">
+      <ion-list-header>Opções Adicionais</ion-list-header>
+      <ion-item *ngFor="let opcao of opcoes">
+        <ion-label>{{opcao.descricao}}   {{format(opcao.valor)}}</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="opcao.check"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="acompanhamentos[0].descricao !== 'sem acompanhamento'">
+      <ion-list-header>Acompanhamentos <span>Obrigatório</span></ion-list-header>
+      <ion-item *ngFor="let acompanhamento of acompanhamentos">
+        <ion-label>{{acompanhamento.descricao}}   {{format(acompanhamento.valor)}}</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="acompanhamento.check" required></ion-checkbox>
+      </ion-item>
+      <ion-item *ngIf="isSubmitAcompanhamento">
+        <ion-text class="text-color">Selecione uma opção de acompanhamento</ion-text>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="bebidas[0].descricao !== 'sem bebida'">
+      <ion-list-header>Bebidas <span>Obrigatório</span></ion-list-header>
+      <ion-item *ngFor="let bebida of bebidas">
+        <ion-label>{{bebida.descricao}}   {{format(bebida.valor)}}</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="bebida.check" required></ion-checkbox>
+      </ion-item>
+      <ion-item *ngIf="isSubmitBebida">
+        <ion-text class="text-color">Selecione uma opção de bebida</ion-text>
+      </ion-item> 
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Observações do pedido:</ion-label>
+        <ion-textarea [(ngModel)]="product.obs"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-toolbar class="footer" *ngIf="product.estoque > 0 && activeEstoque === true">
+    <ion-buttons slot="start">
+      <ion-button (click)="decrement()">   
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-button>
+      <strong>{{product.qtde}}</strong>
+      <ion-button *ngIf="product.qtde < product.estoque" (click)="increment()">   
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button  (click)="addCart(product)">   
+        Adicionar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="product.estoque === 0" class="indisponivel">
+    <ion-title>Estoque Indisponível</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="footer" *ngIf="activeEstoque === false">
+    <ion-buttons slot="start">
+      <ion-button (click)="decrement()">   
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-button>
+      <strong>{{product.qtde}}</strong>
+      <ion-button (click)="increment()">   
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button  (click)="addCart(product)">   
+        Adicionar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-content>

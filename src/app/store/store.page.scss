@@ -1,0 +1,22 @@
+.status p, ion-list-header {
+    text-transform: capitalize;
+}
+
+ion-list-header {
+    padding: 0 5%;
+}
+
+ion-icon {
+    font-size: 18px;
+    color: #ff9259;
+}
+
+.filter {
+    --background: #efefef;
+}
+
+ion-avatar {
+    width: 80px;
+    height: 60px;
+    --border-radius: 0;
+}

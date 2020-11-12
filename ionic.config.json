@@ -1,0 +1,9 @@
+{
+  "name": "compracerta",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+
+  },
+  "type": "angular"
+}

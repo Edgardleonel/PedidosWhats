@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <strong><span>Compra<img class="logo" src="../../assets/tag.svg" />Certa</span></strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+      <ion-list>
+        <ion-list-header>Escolha o que você deseja em {{cidade}}?</ion-list-header>
+        <div *ngFor="let skeleton of skeletons">           
+          <ion-item *ngIf="!departamentos">
+            <ion-label><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></ion-label>
+            <ion-avatar slot="end">
+              <ion-skeleton-text animated style="border-radius: 4px"></ion-skeleton-text>
+            </ion-avatar>
+          </ion-item>
+        </div>
+        <div *ngFor="let departamento of departamentos">
+          <ion-list routerLink="/tabs/departamentos/{{departamento.store}}">
+            <ion-item>
+              <ion-label>{{departamento.store}}</ion-label>
+              <ion-button  slot="end"> <ion-icon name="{{departamento.icon}}"></ion-icon></ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-list>
+</ion-content>
